@@ -7,6 +7,7 @@ import (
 	"github.com/hashicorp/nomad/api"
 )
 
+// NodeConsumer is a type which handles a Nomad API client.
 type NodeConsumer struct {
 	// A struct which handles the node events
 	client *api.Client
@@ -106,7 +107,7 @@ func (nc *NodeConsumer) handleNodeEvent(nodeEvents *api.Events) {
 		if e.Type == "NodeRegistration" {
 			n, err := e.Node()
 			if err != nil {
-				fmt.Print("Received Node registration error %s\n", err)
+				fmt.Printf("Received Node registration error %s\n", err)
 				return
 			} // handle node event assignment errors
 			if n == nil {

@@ -1,6 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "local>hashi-at-home/renovate-config"
+  "extends": ["local>hashi-at-home/renovate-config"],
+  "packageRules": [
+    {
+      "matchManagers": ["gomod"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchDepTypes": ["dependencies"],
+      "automerge": true,
+      "requiredStatusChecks": ["build-and-test"]
+    }
   ]
 }
