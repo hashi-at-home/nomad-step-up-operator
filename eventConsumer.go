@@ -11,16 +11,52 @@ import (
 type NodeConsumer struct {
 	// A struct which handles the node events
 	client *api.Client
-	// onNode func(eventType string, node *api.Node)
-	stop func()
+	onNode func(eventType string, node *api.Node)
+	stop   func()
+}
+
+// StepUp is a struct which defines a step-up job
+type StepUp struct {
+	client *api.Client
+}
+
+// NewStepUp is a function which returns a new stepup object
+func NewStepUp(client *api.Client) *StepUp {
+	return &StepUp{
+		client: client,
+	}
+}
+
+/*
+onNode is a function which takes a Node event and starts a Nomad job on it.
+*/
+func (s *StepUp) onNode(eventType string, node *api.Node) {
+	fmt.Println(node.Name)
+	fmt.Println("")
+	meta := node.Meta
+	drivers := node.Drivers
+	fmt.Print(meta)
+	for k, v := range meta {
+		fmt.Printf("%s: %s\n", k, v)
+	}
+	// Check if docker is present
+	dockerPresent, err := drivers["docker"]
+
+	if !err {
+		fmt.Println("Error getting docker")
+	}
+	if !dockerPresent.Detected {
+		fmt.Println("Docker not detected")
+	}
+
 }
 
 // NewNodeConsumer is a function which returns a new node consumer
 // func NewNodeConsumer(client *api.Client, onNode func(eventType string, node *api.Node)) *NodeConsumer {
-func NewNodeConsumer(client *api.Client) *NodeConsumer {
+func NewNodeConsumer(client *api.Client, onNode func(eventType string, node *api.Node)) *NodeConsumer {
 	return &NodeConsumer{
 		client: client,
-		// onNode: onNode,
+		onNode: onNode,
 	}
 }
 
@@ -49,7 +85,7 @@ func (nc *NodeConsumer) consume(ctx context.Context) error {
 	// this is the index of the event
 	var index uint64 = 0
 	// Check if there are nodes
-	_, meta, err := nc.client.NodePools().List(nil)
+	_, meta, err := nc.client.Nodes().List(nil)
 	if err != nil {
 		return err
 	}
@@ -57,12 +93,10 @@ func (nc *NodeConsumer) consume(ctx context.Context) error {
 	// increment the index from the
 	index = meta.LastIndex + 1
 
-	// specif the topics we want to consume
+	// specify the topics we want to consume
 	topics := map[api.Topic][]string{
 		api.TopicNode: {"*"},
 	}
-	fmt.Println("Set Topics")
-	fmt.Println(topics)
 	// Start the event consumer
 	nodeEventsClient := nc.client.EventStream()
 	// create the channel for the events
@@ -101,7 +135,7 @@ func (nc *NodeConsumer) handleNodeEvent(nodeEvents *api.Events) {
 
 	// loop over the events
 	for _, e := range nodeEvents.Events {
-		// Event types are here:
+		// Event types are documented here:
 		// https://developer.hashicorp.com/nomad/api-docs/events#event-types
 		// We only listen to the NodeRegistration and NodeDeregistration
 		if e.Type == "NodeRegistration" {
@@ -113,10 +147,10 @@ func (nc *NodeConsumer) handleNodeEvent(nodeEvents *api.Events) {
 			if n == nil {
 				return
 			}
-			fmt.Printf("Node %s has been registered -- bootstrapping\n", n.Name)
-
+			nc.onNode(e.Type, n)
+			// fmt.Printf("Node %s has been registered -- bootstrapping\n", n.Name)
 		} else {
-			fmt.Printf("Event type %s, do nothing\n", e.Type)
+			// Event of type that is not interesting to us
 			return
 		}
 	}

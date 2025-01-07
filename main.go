@@ -35,7 +35,8 @@ func run(args []string) error {
 		return err
 	}
 	fmt.Println("Starting consumer")
-	consumer := NewNodeConsumer(client)
+	stepup := NewStepUp(client)
+	consumer := NewNodeConsumer(client, stepup.onNode)
 	signals := make(chan os.Signal, 1) // Make a channel which we can send signals to. One signal at a time. Signal type is os.Signal.
 	signal.Notify(signals, syscall.SIGINT, syscall.SIGTERM)
 
