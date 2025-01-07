@@ -58,3 +58,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
+      - name: Build and publish container image
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          LATEST_TAG=$(git describe --tags $(git rev-list --tags --max-count=1))
+          echo "Latest tag: $LATEST_TAG"
+          pack build ghcr.io/hashi-at-home/nomad-step-up-operator:$LATEST_TAG \
+            --builder paketobuildpacks/builder-jammy-tiny \
+            --env "BP_IMAGE_LABELS=org.opencontainers.image.source=https://github.com/hashi-at-home/nomad-step-up-operator" \
+            --publish
