@@ -6,7 +6,6 @@ This program reads events from the Nomad event stream and
 package main
 
 import (
-	"context"
 	"fmt"
 	"os"
 	"os/signal"
@@ -27,58 +26,27 @@ func run(args []string) error {
 	// The run function set up new client with configuration
 
 	// Address and SecretID are read from the environment variables
-	client, err := api.NewClient(&api.Config{})
+	client, err := api.NewClient(&api.Config{
+		Address:  os.Getenv("NOMAD_HTTP_ADDR"),
+		SecretID: os.Getenv("NOMAD_TOKEN"),
+	})
 	// Handle any client errors, if they occur
 	if err != nil {
 		return err
 	}
+	fmt.Println("Starting consumer")
+	consumer := NewNodeConsumer(client)
+	signals := make(chan os.Signal, 1) // Make a channel which we can send signals to. One signal at a time. Signal type is os.Signal.
+	signal.Notify(signals, syscall.SIGINT, syscall.SIGTERM)
 
-	// create a client to listen to the event stream
-	eventsClient := client.EventStream()
-
-	// Set up two event consumers - one for allocations and one for nodes
-	// nodeConsumer :=
-	// subscribe to specific events
-	topics := map[api.Topic][]string{
-		api.TopicAllocation: {"*"},
-	}
-
-	// nodeEvents := map[api.Topic][]string{api.TopicNode: {"*"}}
-
-	// Begin stream
-	ctx := context.Background()
-
-	// allocCh is a channel which we can loop over, consuming events.
-	// only the allocation events should be
-	allocCh, err := eventsClient.Stream(ctx, topics, 0, &api.QueryOptions{})
-	// nodeCh, err := eventsClient.Stream(ctx, nodeEvents, 0, &api.QueryOptions{})
-
-	for {
-		select {
-		case <-ctx.Done():
-			return nil
-
-		case event := <-allocCh:
-			if event.IsHeartbeat() {
-				fmt.Print("Heartbeat Event")
-			}
-			fmt.Print(event)
-		}
-
-		if err != nil {
-			fmt.Printf("Error: %s", err)
-		}
-
-		signals := make(chan os.Signal, 1)
-		signal.Notify(signals, syscall.SIGINT, syscall.SIGTERM)
-
-		// Create an anonymous function to safely deal with shutdown signals.
-		go func() {
-			s := <-signals
-			fmt.Printf("Received %s, stopping\n", s)
-
-			os.Exit(0)
-		}()
-		client.Status()
-	}
+	// start an anonymous function to consume the eventstream
+	go func() {
+		// receive signals if any
+		s := <-signals
+		fmt.Printf("Received signal %s, stopping\n", s)
+		consumer.StopNodeConsumer() // stop the consumer gracefully
+		os.Exit(0)                  // exit the program with no errors
+	}()
+	consumer.StartNodeConsumer()
+	return nil
 }
