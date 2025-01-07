@@ -58,6 +58,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
+      - name: add cnb
+        run: |
+          sudo add-apt-repository ppa:cncf-buildpacks/pack-cli
+          sudo apt-get update
+          sudo apt-get install -y pack-cli
       - name: Build and publish container image
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
