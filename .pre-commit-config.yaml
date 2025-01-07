@@ -1,0 +1,32 @@
+repos:
+  # Detect-secrets to scan for secrets in the codebase
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.5.0  # Replace with the latest version
+    hooks:
+      - id: detect-secrets
+        args: ["--baseline", ".secrets.baseline"]
+
+  # Commitlint to enforce conventional commit messages
+  - repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
+    rev: v9.20.0  # Replace with the latest version
+    hooks:
+      - id: commitlint
+        stages: [commit-msg]
+        additional_dependencies:
+          - "@commitlint/config-conventional"
+
+  # Pre-commit Go hooks for linting, building, and testing
+  - repo: https://github.com/dnephin/pre-commit-golang
+    rev: v0.5.1  # Replace with the latest version
+    hooks:
+      # Run `go fmt` to format code
+      - id: go-fmt
+      # Run `go vet` to analyze code for potential issues
+      - id: go-vet
+      # Run `golint` to lint code
+      - id: go-lint
+        args: ["--set_exit_status"]
+      # Run `go build` to ensure the code compiles
+      - id: go-build
+      # Run `go test` to execute tests
+      - id: go-unit-tests

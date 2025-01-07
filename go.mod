@@ -1,4 +1,4 @@
-module hashiatho.me/nomad-event-stream
+module hashiatho.me/nomad-step-up-operator
 
 go 1.22.1
 
