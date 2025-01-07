@@ -47,6 +47,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "22"
+      - name: Add dependencies
+        run: npm install "@semantic-release/changelog" "@semantic-release/github" "@semantic-release/git"
 
       # Run semantic-release
       - name: Run semantic-release
