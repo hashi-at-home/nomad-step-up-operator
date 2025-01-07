@@ -37,6 +37,11 @@ jobs:
 
   release:
     name: Release
+    permissions:
+      contents: write
+      packages: write
+      attestations: write
+      id-token: write
     runs-on: ubuntu-24.04
     needs: build-and-test # Only run if the build-and-test job succeeds
 
