@@ -68,6 +68,18 @@ jobs:
           sudo add-apt-repository ppa:cncf-buildpacks/pack-cli
           sudo apt-get update
           sudo apt-get install -y pack-cli
+  publish:
+    strategy:
+      matrix:
+        platform:
+          - linux/amd64
+          - linux/arm64
+    needs:
+      - release
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
       - name: Authenticate to GHCR
         uses: docker/login-action@v3
         with:
@@ -81,6 +93,6 @@ jobs:
           LATEST_TAG=$(git describe --tags $(git rev-list --tags --max-count=1))
           echo "Latest tag: $LATEST_TAG"
           pack build ghcr.io/hashi-at-home/nomad-step-up-operator:$LATEST_TAG \
-            --builder paketobuildpacks/builder-jammy-tiny \
+            --builder heroku/builder:24 \
             --env "BP_IMAGE_LABELS=org.opencontainers.image.source=https://github.com/hashi-at-home/nomad-step-up-operator" \
-            --publish
+            --publish --platform ${{ matrix.platform }}
