@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.0.3...v1.1.0) (2025-01-12)
+
+
+### Features
+
+* add operator job ([17926ba](https://github.com/hashi-at-home/nomad-step-up-operator/commit/17926ba12c3d60609a1841c309ff23005a05940a))
+
 ## [1.0.3](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.0.2...v1.0.3) (2025-01-12)
 
 
