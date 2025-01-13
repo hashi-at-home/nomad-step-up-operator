@@ -100,7 +100,6 @@ jobs:
             qemu-user \
             qemu-system-arm \
             qemu-efi-aarch64
-            qemu-efi-aarch64
       - name: Get Pack
         run: |
           wget -O pack.tgz https://github.com/buildpacks/pack/releases/download/v0.35.0/pack-v0.35.0-linux.tgz
