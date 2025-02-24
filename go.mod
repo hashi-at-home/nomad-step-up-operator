@@ -2,7 +2,7 @@ module hashiatho.me/nomad-step-up-operator
 
 go 1.22.1
 
-require github.com/hashicorp/nomad/api v0.0.0-20250217151332-af2ac8740968
+require github.com/hashicorp/nomad/api v0.0.0-20250221215018-11cf98abe341
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
