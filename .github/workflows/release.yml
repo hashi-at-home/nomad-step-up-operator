@@ -116,4 +116,5 @@ jobs:
           pack build ghcr.io/hashi-at-home/nomad-step-up-operator:$LATEST_TAG \
             --builder heroku/builder:24 \
             --env "BP_IMAGE_LABELS=org.opencontainers.image.source=https://github.com/hashi-at-home/nomad-step-up-operator" \
+            --env "BP_INCLUDE_FILES=step-up.hcl" \
             --publish --platform ${{ matrix.platform }}
