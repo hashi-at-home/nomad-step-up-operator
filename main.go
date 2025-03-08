@@ -7,10 +7,12 @@ package main
 
 import (
 	"fmt"
+
 	"os"
 	"os/signal"
 	"syscall"
 
+	"github.com/charmbracelet/log"
 	"github.com/hashicorp/nomad/api"
 )
 
@@ -25,6 +27,11 @@ func main() {
 func run(args []string) error {
 	// The run function set up new client with configuration
 
+	// Get the job file path from the environment.
+	jobFilePath := os.Getenv("NOMAD_JOB_FILE")
+	if jobFilePath == "" {
+		log.Fatal("NOMAD_JOB_FILE environment variable is not set")
+	}
 	// Address and SecretID are read from the environment variables
 	client, err := api.NewClient(&api.Config{
 		Address:  os.Getenv("NOMAD_HTTP_ADDR"),
@@ -35,7 +42,10 @@ func run(args []string) error {
 		return err
 	}
 	fmt.Println("Starting consumer")
-	stepup := NewStepUp(client)
+	stepup, err := NewStepUp(client, jobFilePath)
+	if err != nil {
+		log.Errorf("Failed to create stepup: %v", err)
+	}
 	consumer := NewNodeConsumer(client, stepup.onNode)
 	signals := make(chan os.Signal, 1) // Make a channel which we can send signals to. One signal at a time. Signal type is os.Signal.
 	signal.Notify(signals, syscall.SIGINT, syscall.SIGTERM)

@@ -3,7 +3,9 @@ package main
 import (
 	"context"
 	"fmt"
+	"os"
 
+	"github.com/charmbracelet/log"
 	"github.com/hashicorp/nomad/api"
 )
 
@@ -18,24 +20,33 @@ type NodeConsumer struct {
 // StepUp is a struct which defines a step-up job
 type StepUp struct {
 	client *api.Client
+	jobHCL string // store the job declaration read from a file.
 }
 
 // NewStepUp is a function which returns a new stepup object
-func NewStepUp(client *api.Client) *StepUp {
+func NewStepUp(client *api.Client, jobFilePath string) (*StepUp, error) {
+	// read job declaration from file
+	jobBytes, err := os.ReadFile(jobFilePath)
+	if err != nil {
+		log.Errorf("Failed to read job file %v", err)
+		return nil, err
+	}
+
 	return &StepUp{
 		client: client,
-	}
+		jobHCL: string(jobBytes),
+	}, nil
 }
 
 /*
 onNode is a function which takes a Node event and starts a Nomad job on it.
 */
 func (s *StepUp) onNode(eventType string, node *api.Node) {
-	fmt.Println(node.Name)
-	fmt.Println("")
+	log.Infof("Node %s\n", node.Name)
 	meta := node.Meta
 	drivers := node.Drivers
-	fmt.Print(meta)
+	log.Infof("Meta: %v\n", meta)
+	log.Infof("Drivers: %v\n", drivers)
 	for k, v := range meta {
 		fmt.Printf("%s: %s\n", k, v)
 	}
@@ -43,12 +54,68 @@ func (s *StepUp) onNode(eventType string, node *api.Node) {
 	dockerPresent, err := drivers["docker"]
 
 	if !err {
-		fmt.Println("Error getting docker")
+		log.Warn("Error getting docker")
 	}
 	if !dockerPresent.Detected {
-		fmt.Println("Docker not detected")
+		log.Warn("Docker not detected")
 	}
 
+	if eventType != "NodeRegistration" {
+		return
+	}
+
+	if node.SchedulingEligibility != "eligible" || node.Status != "ready" {
+		log.Warn("Node %s is not eligible or ready\n", node.Name)
+		return
+	}
+
+	// Check if Docker is available
+	if driver, ok := node.Drivers["docker"]; !ok || !driver.Healthy {
+		log.Warnf("Docker driver is not available or not healthy on node %s", node.Name)
+		return
+	}
+
+	// schedule the job on the node
+	if err := s.deployJobToNode(node.ID); err != nil {
+		log.Errorf("Failed to deploy job to node %s: %v", node.ID, err)
+		return
+	}
+
+	log.Infof("Successfully deployed job to node %s", node.ID)
+}
+
+func (s *StepUp) deployJobToNode(nodeID string) error {
+	// Parse the HCL file
+	job, err := s.client.Jobs().ParseHCL(s.jobHCL, true)
+	if err != nil {
+		log.Errorf("Failed to parse job HCL: %v", err)
+		return err
+	}
+
+	constraint := &api.Constraint{
+		LTarget: "${node.unique.id}",
+		RTarget: nodeID,
+		Operand: "=",
+	}
+
+	// Add the constraint to the job.
+	for _, group := range job.TaskGroups {
+		group.Constraints = append(group.Constraints, constraint)
+	}
+
+	// Register the job
+	jobRegisterOpts := &api.RegisterOptions{
+		PreserveCounts: true,
+	}
+
+	_, _, err = s.client.Jobs().RegisterOpts(job, jobRegisterOpts, nil)
+
+	if err != nil {
+		log.Errorf("Failed to register job: %v", err)
+		return err
+	}
+
+	return nil
 }
 
 // NewNodeConsumer is a function which returns a new node consumer
