@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.1.15...v1.2.0) (2025-03-08)
+
+
+### Features
+
+* add job submission from file ([ecb30eb](https://github.com/hashi-at-home/nomad-step-up-operator/commit/ecb30eb5934ad556f5d9e71a1342b5df67b60141))
+
 ## [1.1.15](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.1.14...v1.1.15) (2025-02-24)
 
 
