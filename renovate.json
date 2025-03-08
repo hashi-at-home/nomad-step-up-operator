@@ -16,7 +16,6 @@
         "dependencies"
       ],
       "automerge": true,
-      "matchConfidence": "high",
       "requiredStatusChecks": [
         "build-and-test"
       ]
