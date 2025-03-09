@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.1...v1.4.2) (2025-03-09)
+
+
+### Bug Fixes
+
+* create unique job name for specific events ([4c7ab4a](https://github.com/hashi-at-home/nomad-step-up-operator/commit/4c7ab4acc3a9aa8f26d884a7c4758414254afca2))
+
 ## [1.4.1](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.0...v1.4.1) (2025-03-09)
 
 
