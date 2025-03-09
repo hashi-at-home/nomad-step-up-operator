@@ -8,7 +8,12 @@ variable "version" {
 
 job "step-up" {
   type = "service"
-
+  reschedule {
+    delay          = "30s"
+    delay_function = "constant"
+    max_delay      = "120s"
+    unlimited      = true
+  }
   update {
     max_parallel      = 2
     min_healthy_time  = "10s"
@@ -23,6 +28,10 @@ job "step-up" {
     env = true
   }
   group "operators" {
+    restart {
+      attempts = 3
+      delay    = "30s"
+    }
     network {
       port "metrics" {
         to = 8080

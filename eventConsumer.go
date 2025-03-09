@@ -210,9 +210,9 @@ func (nc *NodeConsumer) consume(ctx context.Context) error {
 			// stop the program and send no error
 			return nil
 		case <-heartbeatCheck.C:
-			if time.Since(lastEventTime) > 60*time.Second {
-				log.Error("No events received in the last minute")
-				return fmt.Errorf("No events received in the last minute")
+			if time.Since(lastEventTime) > 10*time.Minute {
+				log.Error("No events received in the last 10 minutes")
+				return fmt.Errorf("No events received in the last 10 minutes")
 
 			}
 		case nodeEvent := <-nodeEventCh: // receive a node event
