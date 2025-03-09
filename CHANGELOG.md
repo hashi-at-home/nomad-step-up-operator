@@ -1,3 +1,10 @@
+## [1.4.3](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.2...v1.4.3) (2025-03-09)
+
+
+### Bug Fixes
+
+* tune heartbeat timeout to 10 minutes ([c4bd597](https://github.com/hashi-at-home/nomad-step-up-operator/commit/c4bd597a1224e63c53269dae412170a9969b72f4))
+
 ## [1.4.2](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.1...v1.4.2) (2025-03-09)
 
 
