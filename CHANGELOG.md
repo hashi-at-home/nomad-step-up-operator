@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.0...v1.4.1) (2025-03-09)
+
+
+### Bug Fixes
+
+* **jobspec:** expose metrics port ([f688d76](https://github.com/hashi-at-home/nomad-step-up-operator/commit/f688d7661d0a9a9c7d34ef12069fb18759a05c62))
+
 # [1.4.0](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.3.0...v1.4.0) (2025-03-09)
 
 
