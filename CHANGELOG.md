@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.3.0...v1.4.0) (2025-03-09)
+
+
+### Features
+
+* add telemetry, service and health checks ([1d8a474](https://github.com/hashi-at-home/nomad-step-up-operator/commit/1d8a474f6d8957634534a9d260d16d919c5d0369))
+
 # [1.3.0](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.2.1...v1.3.0) (2025-03-08)
 
 
