@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"os"
+	"time"
 
 	"github.com/charmbracelet/log"
 	"github.com/hashicorp/nomad/api"
@@ -15,6 +16,8 @@ type NodeConsumer struct {
 	client *api.Client
 	onNode func(eventType string, node *api.Node)
 	stop   func()
+
+	telemetry *Telemetry
 }
 
 // StepUp is a struct which defines a step-up job
@@ -120,10 +123,11 @@ func (s *StepUp) deployJobToNode(nodeID string) error {
 
 // NewNodeConsumer is a function which returns a new node consumer
 // func NewNodeConsumer(client *api.Client, onNode func(eventType string, node *api.Node)) *NodeConsumer {
-func NewNodeConsumer(client *api.Client, onNode func(eventType string, node *api.Node)) *NodeConsumer {
+func NewNodeConsumer(client *api.Client, onNode func(eventType string, node *api.Node), telemetry *Telemetry) *NodeConsumer {
 	return &NodeConsumer{
-		client: client,
-		onNode: onNode,
+		client:    client,
+		onNode:    onNode,
+		telemetry: telemetry,
 	}
 }
 
@@ -133,13 +137,14 @@ func (nc *NodeConsumer) StopNodeConsumer() {
 	if nc.stop != nil {
 		nc.stop()
 	}
+
 }
 
 // StartNodeConsumer is a function which receives a NodeConsumer type
 // which starts the context in the background
 func (nc *NodeConsumer) StartNodeConsumer() {
 	ctx := context.Background()
-	fmt.Println("started context in background")
+	log.Info("NodeConsumer: started context in background")
 	ctx, nc.stop = context.WithCancel(ctx)
 	nc.consume(ctx)
 }
@@ -148,14 +153,21 @@ func (nc *NodeConsumer) StartNodeConsumer() {
 // It has a NodeConsumer receiver and takes a context as argument
 // and returns an error
 func (nc *NodeConsumer) consume(ctx context.Context) error {
-	fmt.Println("Consuming node event")
+	log.Info("Consuming node events")
 	// this is the index of the event
 	var index uint64 = 0
 	// Check if there are nodes
-	_, meta, err := nc.client.Nodes().List(nil)
+	nodes, meta, err := nc.client.Nodes().List(nil)
 	if err != nil {
-		return err
+		log.Errorf("Error listing nodes: %v", err)
+		return fmt.Errorf("error listing nodes: %w", err)
 	}
+
+	if len(nodes) == 0 {
+		log.Warn("No nodes found in cluster")
+		return fmt.Errorf("no nodes found in cluster")
+	}
+	log.Infof("Found %d nodes in cluster", len(nodes))
 
 	// increment the index from the
 	index = meta.LastIndex + 1
@@ -166,12 +178,23 @@ func (nc *NodeConsumer) consume(ctx context.Context) error {
 	}
 	// Start the event consumer
 	nodeEventsClient := nc.client.EventStream()
+
+	// signal successful connection
+	nc.telemetry.RecordEventStreamStatus(ctx, true)
+	defer nc.telemetry.RecordEventStreamStatus(ctx, false)
+
+	log.Info("Establishing event stream")
 	// create the channel for the events
 	nodeEventCh, err := nodeEventsClient.Stream(ctx, topics, index, &api.QueryOptions{})
 	if err != nil {
-		return err
+		log.Errorf("Failed to create event stream: %v", err)
+		return fmt.Errorf("Failed to create event stream: %w", err)
 	}
 
+	lastEventTime := time.Now()
+	heartbeatCheck := time.NewTicker(30 * time.Second)
+
+	defer heartbeatCheck.Stop()
 	// start an infinite loop to consume the events
 	for {
 		// Decide what to do when specific events occur
@@ -180,9 +203,28 @@ func (nc *NodeConsumer) consume(ctx context.Context) error {
 			// when the context is closed
 			// stop the program and send no error
 			return nil
+		case <-heartbeatCheck.C:
+			if time.Since(lastEventTime) > 60*time.Second {
+				log.Error("No events received in the last minute")
+				return fmt.Errorf("No events received in the last minute")
+
+			}
 		case nodeEvent := <-nodeEventCh: // receive a node event
+
+			lastEventTime = time.Now()
+			if nodeEvent == nil {
+				log.Error("Received a nil event")
+				return fmt.Errorf("Received a nil event")
+			}
+
+			if nodeEvent.Err != nil {
+				log.Error("Received an error %s", nodeEvent.Err)
+				return fmt.Errorf("Received an error %s", nodeEvent.Err)
+			}
 			// Ignore heartbeats
+
 			if nodeEvent.IsHeartbeat() {
+				log.Debug("received heartbeat")
 				continue
 			}
 			// else, handle the event
@@ -221,4 +263,49 @@ func (nc *NodeConsumer) handleNodeEvent(nodeEvents *api.Events) {
 			return
 		}
 	}
+}
+
+func validateNomadConnection(client *api.Client) error {
+	// try to list nodes - if there are no nodes, then the api connection is not valid.
+	nodes, _, err := client.Nodes().List(&api.QueryOptions{})
+
+	if err != nil {
+		log.Errorf("Failed to list nodes: %v", err)
+		return fmt.Errorf("Failed to list nodes: %w", err)
+	}
+
+	if len(nodes) == 0 {
+		log.Error("No nodes found - check if NOMAD_TOKEN has correct permissions or is set.")
+		return fmt.Errorf("no nodes found - check if NOMAD_TOKEN has correct permissions or is set")
+	}
+
+	// see if we can access all topics
+	topics := map[api.Topic][]string{
+		api.TopicNode: {"*"},
+	}
+
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
+	defer cancel()
+
+	eventsCh, err := client.EventStream().Stream(ctx, topics, 0, &api.QueryOptions{})
+
+	if err != nil {
+		log.Errorf("Failed to validate nomad event stream: %v", err)
+		return fmt.Errorf("Failed to validate nomad nomad event stream: %w", err)
+	}
+
+	// wait for at least one event, even a heartbeat
+	select {
+	case event := <-eventsCh:
+		if event.Err != nil {
+			log.Errorf("Failed to validate nomad event stream: %v", err)
+			return fmt.Errorf("Failed to validate nomad nomad event stream: %w", err)
+		}
+
+	case <-ctx.Done():
+		log.Errorf("Timeout waiting for event stream connection")
+		return fmt.Errorf("Timeout waiting for event stream connection")
+	}
+
+	return nil
 }

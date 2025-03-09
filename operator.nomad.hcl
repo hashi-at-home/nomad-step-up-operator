@@ -1,12 +1,13 @@
 # Job definition for the operator
 variable "version" {
   type        = string
-  default     = "v1.2.1"
+  default     = "v1.3.0"
   description = "Version of the application to deploy."
 }
 
 job "step-up" {
   type = "service"
+
   update {
     max_parallel      = 2
     min_healthy_time  = "10s"
@@ -21,7 +22,40 @@ job "step-up" {
     env = true
   }
   group "operators" {
+    network {
+      port "metrics" {
+        to = 8080
+      }
+    }
+
+    service {
+      name = "nomad-step-up-operator"
+      port = "metrics"
+      tags  = [
+        "prometheus.io/scrape=true",
+        "prometheus.io/port=${NOMAD_PORT_metrics}",
+        "prometheus.io/path=/metrics"
+      ]
+      check {
+        type     = "http"
+        path     = "/metrics"
+        interval = "30s"
+        timeout  = "5s"
+        check_restart {
+          limit = 3
+          grace = "60s"
+          ignore_warnings = false
+        }
+        success_before_passing = 2
+        failures_before_critical = 2
+      }
+    }
+
     task "operator" {
+      resources {
+        cores = 1
+        memory = 1024
+      }
       driver = "docker"
       identity {
         name        = "vault"
@@ -32,27 +66,20 @@ job "step-up" {
         ttl         = "1h"
       }
 
-      artifact {
-        source = "git::https://github.com/hashi-at-home/nomad-step-up-operator//step-up.hcl"
-        destination = "local/jobs/"
-        mode = "file"
-      }
-
       config {
         image = "ghcr.io/hashi-at-home/nomad-step-up-operator:${var.version}"
       }
 
       artifact {
-        source = "git::https://github.com/hashi-at-home/nomad-step-up-operator//step-up.hcl"
-        destination = "local/jobs/"
-        mode = "file"
+        source = "git::https://github.com/hashi-at-home/nomad-step-up-operator"
+        destination = "local/repo"
       }
 
       template  {
         data = <<EOF
         NOMAD_TOKEN={{ with secret "nomad/creds/mgmt" }}{{ .Data.secret_id }}{{ end }}
         NOMAD_ADDR={{ with service "http.nomad" }}{{ with index . 0 }}http://{{ .Address }}:{{ .Port }}{{ end }}{{ end }}
-        NOMAD_JOB_FILE=/local/jobs/step-up.hcl"
+        NOMAD_JOB_FILE="/local/repo/step-up.hcl"
         EOF
         destination = "secrets/env"
         env         = true
