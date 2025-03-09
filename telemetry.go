@@ -48,7 +48,7 @@ func NewTelemetry(ctx context.Context) (*Telemetry, error) {
 	))
 
 	go func() {
-		metricsPort := ":8080"
+		metricsPort := "0.0.0.0:8080"
 		http.Handle("/metrics", promhttp.Handler())
 		log.Infof("Starting Metrics Server on %s", metricsPort)
 		if err := http.ListenAndServe(metricsPort, nil); err != nil {

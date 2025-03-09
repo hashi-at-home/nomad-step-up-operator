@@ -1,3 +1,4 @@
+
 # Job definition for the operator
 variable "version" {
   type        = string
@@ -68,6 +69,7 @@ job "step-up" {
 
       config {
         image = "ghcr.io/hashi-at-home/nomad-step-up-operator:${var.version}"
+        ports = ["metrics"]  // expose the metrics port
       }
 
       artifact {
@@ -79,6 +81,7 @@ job "step-up" {
         data = <<EOF
         NOMAD_TOKEN={{ with secret "nomad/creds/mgmt" }}{{ .Data.secret_id }}{{ end }}
         NOMAD_ADDR={{ with service "http.nomad" }}{{ with index . 0 }}http://{{ .Address }}:{{ .Port }}{{ end }}{{ end }}
+        NOMAD_HTTP_ADDR={{ with service "http.nomad" }}{{ with index . 0 }}http://{{ .Address }}:{{ .Port }}{{ end }}{{ end }}
         NOMAD_JOB_FILE="/local/repo/step-up.hcl"
         EOF
         destination = "secrets/env"
