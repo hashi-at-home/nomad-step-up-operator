@@ -25,8 +25,8 @@ job "node-config" {
 
     task "configure" {
       resources {
-        cores = 1
-        memory = 1024
+        cpu = 100
+        memory = 256
       }
 
       driver = "raw_exec"

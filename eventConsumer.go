@@ -68,7 +68,7 @@ func (s *StepUp) onNode(eventType string, node *api.Node) {
 	}
 
 	if node.SchedulingEligibility != "eligible" || node.Status != "ready" {
-		log.Warn("Node %s is not eligible or ready\n", node.Name)
+		log.Warnf("Node %s is not eligible or ready\n", node.Name)
 		return
 	}
 
@@ -79,15 +79,15 @@ func (s *StepUp) onNode(eventType string, node *api.Node) {
 	}
 
 	// schedule the job on the node
-	if err := s.deployJobToNode(node.ID); err != nil {
-		log.Errorf("Failed to deploy job to node %s: %v", node.ID, err)
+	if err := s.deployJobToNode(node.Name); err != nil {
+		log.Errorf("Failed to deploy job to node %s: %v", node.Name, err)
 		return
 	}
 
-	log.Infof("Successfully deployed job to node %s", node.ID)
+	log.Infof("Successfully deployed job to node %s", node.Name)
 }
 
-func (s *StepUp) deployJobToNode(nodeID string) error {
+func (s *StepUp) deployJobToNode(nodeName string) error {
 	// Parse the HCL file
 	job, err := s.client.Jobs().ParseHCL(s.jobHCL, true)
 	if err != nil {
@@ -95,9 +95,15 @@ func (s *StepUp) deployJobToNode(nodeID string) error {
 		return err
 	}
 
+	// generate a unique job name based on the node name and the timestamp
+	timestamp := time.Now().Format("20060102-150405")
+	uniqueJobName := fmt.Sprintf("node-config-%s-%s", nodeName, timestamp)
+	job.ID = &uniqueJobName
+	job.Name = &uniqueJobName
+
 	constraint := &api.Constraint{
-		LTarget: "${node.unique.id}",
-		RTarget: nodeID,
+		LTarget: "${node.unique.name}",
+		RTarget: nodeName,
 		Operand: "=",
 	}
 
@@ -117,7 +123,7 @@ func (s *StepUp) deployJobToNode(nodeID string) error {
 		log.Errorf("Failed to register job: %v", err)
 		return err
 	}
-
+	log.Infof("Registered job with name: %s", uniqueJobName)
 	return nil
 }
 
@@ -236,14 +242,16 @@ func (nc *NodeConsumer) consume(ctx context.Context) error {
 // handleNodeEvent is a function which receives a NodeConsumer and takes an Events struct as parameter.
 // Handling the event consists of looping over all of the events passed and doing something with them when relevant.
 func (nc *NodeConsumer) handleNodeEvent(nodeEvents *api.Events) {
-	fmt.Println("Handling events")
+	log.Info("Handling events")
 	if nodeEvents.Err != nil {
+		log.Errorf("Received an error %v", nodeEvents.Err)
 		fmt.Printf("Received an error %s\n", nodeEvents.Err)
 		return
 	}
 
 	// loop over the events
 	for _, e := range nodeEvents.Events {
+		log.Infof("Received event: %s", e.Type)
 		// Event types are documented here:
 		// https://developer.hashicorp.com/nomad/api-docs/events#event-types
 		// We only listen to the NodeRegistration and NodeDeregistration
