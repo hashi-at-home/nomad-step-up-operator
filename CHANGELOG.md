@@ -1,3 +1,10 @@
+## [1.4.5](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.4...v1.4.5) (2025-03-14)
+
+
+### Bug Fixes
+
+* **deps:** update module github.com/charmbracelet/log to v0.4.1 ([#31](https://github.com/hashi-at-home/nomad-step-up-operator/issues/31)) ([7f32082](https://github.com/hashi-at-home/nomad-step-up-operator/commit/7f320826c1260a7d4f1428e003d9610e528d3d1f))
+
 ## [1.4.4](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.3...v1.4.4) (2025-03-14)
 
 
