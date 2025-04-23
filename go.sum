@@ -70,6 +70,8 @@ github.com/hashicorp/nomad/api v0.0.0-20250409224358-87aabc9af2ce h1:yXt8mfX0+oY
 github.com/hashicorp/nomad/api v0.0.0-20250409224358-87aabc9af2ce/go.mod h1:ke9JNxf926l1gzdv+hldAgk72SgvmrjSos1rRqDJLq8=
 github.com/hashicorp/nomad/api v0.0.0-20250418202452-b11619010e1c h1:1tjU9ROFUdWsvFEBLNZ34+Y5cMw+ixawYX+1PMGU9zs=
 github.com/hashicorp/nomad/api v0.0.0-20250418202452-b11619010e1c/go.mod h1:y4olHzVXiQolzyk6QD/gqJxQTnnchlTf/QtczFFKwOI=
+github.com/hashicorp/nomad/api v0.0.0-20250423201258-9a303724263d h1:RCpxy66+FUNuOZyQ/so6Lm7ayqvp0RglMz6zfAmS2+0=
+github.com/hashicorp/nomad/api v0.0.0-20250423201258-9a303724263d/go.mod h1:y4olHzVXiQolzyk6QD/gqJxQTnnchlTf/QtczFFKwOI=
 github.com/klauspost/compress v1.17.11 h1:In6xLpyWOi1+C7tXUUWv2ot1QvBjxevKAaI6IXrJmUc=
 github.com/klauspost/compress v1.17.11/go.mod h1:pMDklpSncoRMuLFrf1W9Ss9KT+0rH90U12bZKk7uwG0=
 github.com/lucasb-eyer/go-colorful v1.2.0 h1:1nnpGOrhyZZuNyfu1QjKiUICQ74+3FNCN69Aj6K7nkY=
