@@ -4,7 +4,7 @@ go 1.22.1
 
 require (
 	github.com/charmbracelet/log v0.4.1
-	github.com/hashicorp/nomad/api v0.0.0-20250505130432-242ee16c814f
+	github.com/hashicorp/nomad/api v0.0.0-20250507143816-0b265d241784
 	github.com/prometheus/client_golang v1.21.1
 )
 
