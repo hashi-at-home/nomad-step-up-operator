@@ -16,7 +16,7 @@ jobs:
     steps:
       # Check out the repository
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # Set up Go environment
       - name: Set up Go
@@ -49,7 +49,7 @@ jobs:
     steps:
       # Check out the repository
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # Set up Node.js environment (required for semantic-release)
       - name: Set up Node.js
@@ -82,7 +82,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-tags: true
           fetch-depth: 0
