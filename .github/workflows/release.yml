@@ -22,7 +22,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version: "1.24" # Update to match your project's Go version
+          go-version: "1.25" # Update to match your project's Go version
 
       # Install dependencies
       - name: Install dependencies
