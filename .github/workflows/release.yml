@@ -16,13 +16,13 @@ jobs:
     steps:
       # Check out the repository
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # Set up Go environment
       - name: Set up Go
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v6
         with:
-          go-version: "1.24" # Update to match your project's Go version
+          go-version: "1.25" # Update to match your project's Go version
 
       # Install dependencies
       - name: Install dependencies
@@ -49,11 +49,11 @@ jobs:
     steps:
       # Check out the repository
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # Set up Node.js environment (required for semantic-release)
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: "22"
       - name: Add dependencies
@@ -82,7 +82,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-tags: true
           fetch-depth: 0
