@@ -6,7 +6,7 @@ require (
 	github.com/charmbracelet/log v0.4.0
 	github.com/gorilla/mux v1.8.1
 	github.com/hashicorp/consul/api v1.32.1
-	github.com/hashicorp/nomad/api v0.0.0-20250307211430-57cd92274cef
+	github.com/hashicorp/nomad/api v0.0.0-20250926133839-f5c563155e5c
 	github.com/prometheus/client_golang v1.21.1
 )
 
@@ -20,8 +20,8 @@ require (
 	github.com/fatih/color v1.16.0 // indirect
 	github.com/go-logfmt/logfmt v0.6.0 // indirect
 	github.com/google/go-cmp v0.7.0 // indirect
-	github.com/gorilla/websocket v1.5.0 // indirect
-	github.com/hashicorp/cronexpr v1.1.2 // indirect
+	github.com/gorilla/websocket v1.5.3 // indirect
+	github.com/hashicorp/cronexpr v1.1.3 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
 	github.com/hashicorp/go-hclog v1.5.0 // indirect
