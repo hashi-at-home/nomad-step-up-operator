@@ -5,7 +5,7 @@ go 1.24.1
 require (
 	github.com/charmbracelet/log v0.4.0
 	github.com/gorilla/mux v1.8.1
-	github.com/hashicorp/consul/api v1.32.1
+	github.com/hashicorp/consul/api v1.32.4
 	github.com/hashicorp/nomad/api v0.0.0-20250926133839-f5c563155e5c
 	github.com/prometheus/client_golang v1.21.1
 )
