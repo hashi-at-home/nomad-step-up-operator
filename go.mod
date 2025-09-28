@@ -1,6 +1,6 @@
 module hashiatho.me/nomad-step-up-operator
 
-go 1.24.1
+go 1.25
 
 require (
 	github.com/charmbracelet/log v0.4.0

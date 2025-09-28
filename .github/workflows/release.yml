@@ -17,21 +17,19 @@ jobs:
       # Check out the repository
       - name: Checkout code
         uses: actions/checkout@v5
-
-      # Set up Go environment
-      - name: Set up Go
-        uses: actions/setup-go@v6
+      - name: Set up build env
+        uses: jdx/mise-action@v3
         with:
-          go-version: "1.25" # Update to match your project's Go version
-
+          version: 2025.9.21
+          install: true
+          cache: true
+          experimental: true
       # Install dependencies
       - name: Install dependencies
         run: go mod tidy
-
       # Run tests
       - name: Run tests
         run: go test ./...
-
       # Build the package
       - name: Build
         run: go build ./...
@@ -50,12 +48,14 @@ jobs:
       # Check out the repository
       - name: Checkout code
         uses: actions/checkout@v5
-
-      # Set up Node.js environment (required for semantic-release)
-      - name: Set up Node.js
-        uses: actions/setup-node@v5
+      - name: Set up build env
+        uses: jdx/mise-action@v3
         with:
-          node-version: "22"
+          version: 2025.9.21
+          install: true
+          cache: true
+          experimental: true
+      # Set up Node.js environment (required for semantic-release)
       - name: Add dependencies
         run: npm install "@semantic-release/changelog" "@semantic-release/github" "@semantic-release/git"
 
@@ -64,11 +64,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
-      - name: add cnb
-        run: |
-          sudo add-apt-repository ppa:cncf-buildpacks/pack-cli
-          sudo apt-get update
-          sudo apt-get install -y pack-cli
+
   publish:
     strategy:
       fail-fast: false
@@ -101,12 +97,13 @@ jobs:
             qemu-user \
             qemu-system-arm \
             qemu-efi-aarch64
-      - name: Get Pack
-        run: |
-          wget -O pack.tgz https://github.com/buildpacks/pack/releases/download/v0.35.0/pack-v0.35.0-linux.tgz
-          tar -zxvf pack.tgz
-          mv pack /usr/local/bin/pack
-          rm pack.tgz
+      - name: Set up build env
+        uses: jdx/mise-action@v3
+        with:
+          version: 2025.9.21
+          install: true
+          cache: true
+          experimental: true
       - name: Build and publish container image
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
