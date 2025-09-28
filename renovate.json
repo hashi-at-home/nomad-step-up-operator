@@ -15,10 +15,7 @@
       "matchDepTypes": [
         "dependencies"
       ],
-      "automerge": true,
-      "requiredStatusChecks": [
-        "build-and-test"
-      ]
+      "automerge": true
     }
   ]
 }
