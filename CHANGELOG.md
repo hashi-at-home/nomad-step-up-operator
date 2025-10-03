@@ -1,3 +1,10 @@
+## [1.4.16](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.15...v1.4.16) (2025-10-03)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to dbdc6d5 ([#85](https://github.com/hashi-at-home/nomad-step-up-operator/issues/85)) ([46ce5e8](https://github.com/hashi-at-home/nomad-step-up-operator/commit/46ce5e8fd98e1fa69939a16f784f4a07ea278eb7))
+
 ## [1.4.15](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.14...v1.4.15) (2025-09-28)
 
 
