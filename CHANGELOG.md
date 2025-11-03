@@ -1,3 +1,11 @@
+## [1.4.18](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.17...v1.4.18) (2025-11-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @semantic-release/github to v12 ([#89](https://github.com/hashi-at-home/nomad-step-up-operator/issues/89)) ([0178bbc](https://github.com/hashi-at-home/nomad-step-up-operator/commit/0178bbc79bddac575c1fefdfb7229436199a4c32))
+* **deps:** update github.com/hashicorp/nomad/api digest to b6aedb6 ([#87](https://github.com/hashi-at-home/nomad-step-up-operator/issues/87)) ([26c254f](https://github.com/hashi-at-home/nomad-step-up-operator/commit/26c254fc8e3579e043444af0082fb710dda03bb9))
+
 ## [1.4.17](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.16...v1.4.17) (2025-10-04)
 
 
