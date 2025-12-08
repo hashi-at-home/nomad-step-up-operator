@@ -2,7 +2,7 @@
 # Job definition for the operator
 variable "version" {
   type        = string
-  default     = "v1.3.0"
+  default     = "v1.4.29"
   description = "Version of the application to deploy."
 }
 
