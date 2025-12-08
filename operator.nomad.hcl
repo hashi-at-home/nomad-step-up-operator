@@ -66,7 +66,7 @@ job "step-up" {
         cores = 1
         memory = 1024
       }
-      driver = "docker"
+      driver = "podman"
       identity {
         name        = "vault"
         aud         = ["vault.io"]
