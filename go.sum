@@ -115,6 +115,8 @@ github.com/hashicorp/nomad/api v0.0.0-20260202083814-e9bf8d85eef7 h1:naMfdynCff+
 github.com/hashicorp/nomad/api v0.0.0-20260202083814-e9bf8d85eef7/go.mod h1:sldFTIgs+FsUeKU3LwVjviAIuksxD8TzDOn02MYwslE=
 github.com/hashicorp/nomad/api v0.0.0-20260203144450-4e00bf325396 h1:xU19hEZoIFEOuNrqXE72kHQmTFKfF2aZ2A32vNPnMsY=
 github.com/hashicorp/nomad/api v0.0.0-20260203144450-4e00bf325396/go.mod h1:JAmS1nGJ1KcTM+MHAkgyrL0GDbsnKiJsp75KyqO2wWc=
+github.com/hashicorp/nomad/api v0.0.0-20260205205048-8315996478d1 h1:2T7Ay5FMAnZUBxSbrkjufY5YKiLPWij0dDPnbM/KYak=
+github.com/hashicorp/nomad/api v0.0.0-20260205205048-8315996478d1/go.mod h1:JAmS1nGJ1KcTM+MHAkgyrL0GDbsnKiJsp75KyqO2wWc=
 github.com/klauspost/compress v1.17.11 h1:In6xLpyWOi1+C7tXUUWv2ot1QvBjxevKAaI6IXrJmUc=
 github.com/klauspost/compress v1.17.11/go.mod h1:pMDklpSncoRMuLFrf1W9Ss9KT+0rH90U12bZKk7uwG0=
 github.com/klauspost/compress v1.18.0/go.mod h1:2Pp+KzxcywXVXMr50+X0Q/Lsb43OQHYWRCY2AiWywWQ=
