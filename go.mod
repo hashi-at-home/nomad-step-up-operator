@@ -4,7 +4,7 @@ go 1.25
 
 require (
 	github.com/charmbracelet/log v0.4.0
-	github.com/hashicorp/nomad/api v0.0.0-20260211144331-4285f62ae7f9
+	github.com/hashicorp/nomad/api v0.0.0-20260213003447-3a7b0086155b
 	github.com/prometheus/client_golang v1.23.2
 )
 
@@ -15,7 +15,7 @@ require (
 	github.com/charmbracelet/lipgloss v0.10.0 // indirect
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
 	github.com/go-logfmt/logfmt v0.6.0 // indirect
-	github.com/go-viper/mapstructure/v2 v2.4.0 // indirect
+	github.com/go-viper/mapstructure/v2 v2.5.0 // indirect
 	github.com/google/go-cmp v0.7.0 // indirect
 	github.com/gorilla/websocket v1.5.3 // indirect
 	github.com/hashicorp/cronexpr v1.1.3 // indirect
