@@ -83,7 +83,7 @@ jobs:
           fetch-tags: true
           fetch-depth: 0
       - name: Authenticate to GHCR
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
