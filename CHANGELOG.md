@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.69...v1.5.0) (2026-03-13)
+
+
+### Features
+
+* implement step up client ([51ba51f](https://github.com/hashi-at-home/nomad-step-up-operator/commit/51ba51f23bedbc0e33f7147df18e530b7bcfa6ea))
+
 ## [1.4.69](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.68...v1.4.69) (2026-03-13)
 
 
