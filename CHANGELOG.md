@@ -1,3 +1,269 @@
+## [1.4.68](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.67...v1.4.68) (2026-03-13)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to b4cbc37 ([#152](https://github.com/hashi-at-home/nomad-step-up-operator/issues/152)) ([43a3017](https://github.com/hashi-at-home/nomad-step-up-operator/commit/43a3017b7326f156941340319ec30a5c61c9864a))
+
+## [1.4.67](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.66...v1.4.67) (2026-03-10)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to ae36c4b ([#150](https://github.com/hashi-at-home/nomad-step-up-operator/issues/150)) ([3fc7c0f](https://github.com/hashi-at-home/nomad-step-up-operator/commit/3fc7c0fbbef8b41e5c7e32580535b0678b011254))
+
+## [1.4.66](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.65...v1.4.66) (2026-03-06)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to d6d8ee4 ([#148](https://github.com/hashi-at-home/nomad-step-up-operator/issues/148)) ([c0e2ec8](https://github.com/hashi-at-home/nomad-step-up-operator/commit/c0e2ec83aabe30f0c3c4c2ae4c679e8f50f158e1))
+
+## [1.4.65](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.64...v1.4.65) (2026-03-05)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to fad8ded ([#147](https://github.com/hashi-at-home/nomad-step-up-operator/issues/147)) ([5ff0136](https://github.com/hashi-at-home/nomad-step-up-operator/commit/5ff013624e1b0210f3a81fb5c0a7c3cc7fc1b0f7))
+
+## [1.4.64](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.63...v1.4.64) (2026-03-05)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to 9c98359 ([#145](https://github.com/hashi-at-home/nomad-step-up-operator/issues/145)) ([a1e9809](https://github.com/hashi-at-home/nomad-step-up-operator/commit/a1e9809c93f0955ea834fbdb4e351d4309e1ab96))
+
+## [1.4.63](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.62...v1.4.63) (2026-03-03)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to 3ebb93d ([#144](https://github.com/hashi-at-home/nomad-step-up-operator/issues/144)) ([eabecbc](https://github.com/hashi-at-home/nomad-step-up-operator/commit/eabecbc543f102ef57e629f287066e1c0d7fae0e))
+
+## [1.4.62](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.61...v1.4.62) (2026-02-24)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to 50097c2 ([#143](https://github.com/hashi-at-home/nomad-step-up-operator/issues/143)) ([029eda7](https://github.com/hashi-at-home/nomad-step-up-operator/commit/029eda77c23d26d9ca5d74d03c9bdcf41613808e))
+
+## [1.4.61](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.60...v1.4.61) (2026-02-23)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to daca79d ([#142](https://github.com/hashi-at-home/nomad-step-up-operator/issues/142)) ([245cb9e](https://github.com/hashi-at-home/nomad-step-up-operator/commit/245cb9e6ec93d155ded3c4a351844252914fd49f))
+
+## [1.4.60](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.59...v1.4.60) (2026-02-20)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to 21bd37a ([#141](https://github.com/hashi-at-home/nomad-step-up-operator/issues/141)) ([68b10ef](https://github.com/hashi-at-home/nomad-step-up-operator/commit/68b10ef871eb15864301787276bacbdd3d1405d7))
+
+## [1.4.59](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.58...v1.4.59) (2026-02-18)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to 94fa5e6 ([#140](https://github.com/hashi-at-home/nomad-step-up-operator/issues/140)) ([f6e6be0](https://github.com/hashi-at-home/nomad-step-up-operator/commit/f6e6be07d09e4f81710e9282f6737ba1cdc69f87))
+
+## [1.4.58](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.57...v1.4.58) (2026-02-17)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to 2c27b4b ([#139](https://github.com/hashi-at-home/nomad-step-up-operator/issues/139)) ([af4d908](https://github.com/hashi-at-home/nomad-step-up-operator/commit/af4d908db6c92cf1213a927a3043d9163261c6c6))
+
+## [1.4.57](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.56...v1.4.57) (2026-02-16)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to e081dba ([#138](https://github.com/hashi-at-home/nomad-step-up-operator/issues/138)) ([f14c61c](https://github.com/hashi-at-home/nomad-step-up-operator/commit/f14c61c878954874202c8c718bc7fcd3a1bafed7))
+
+## [1.4.56](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.55...v1.4.56) (2026-02-13)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to 3a7b008 ([#137](https://github.com/hashi-at-home/nomad-step-up-operator/issues/137)) ([9512b94](https://github.com/hashi-at-home/nomad-step-up-operator/commit/9512b94c2af2e9674d5852e7d23121b7c191fed7))
+
+## [1.4.55](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.54...v1.4.55) (2026-02-12)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to 4285f62 ([#136](https://github.com/hashi-at-home/nomad-step-up-operator/issues/136)) ([f174347](https://github.com/hashi-at-home/nomad-step-up-operator/commit/f17434751cf9d1cd914ab9fc1868a97c8f5e593d))
+
+## [1.4.54](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.53...v1.4.54) (2026-02-10)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to 94b7749 ([#133](https://github.com/hashi-at-home/nomad-step-up-operator/issues/133)) ([40c9281](https://github.com/hashi-at-home/nomad-step-up-operator/commit/40c92811f7b0f0fc96273d0259074a735eb09c38))
+
+## [1.4.53](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.52...v1.4.53) (2026-02-06)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to 8315996 ([#131](https://github.com/hashi-at-home/nomad-step-up-operator/issues/131)) ([9d229c4](https://github.com/hashi-at-home/nomad-step-up-operator/commit/9d229c4990d0f87ac0ab463a4a786dc3dade4b69))
+
+## [1.4.52](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.51...v1.4.52) (2026-02-04)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to 4e00bf3 ([#130](https://github.com/hashi-at-home/nomad-step-up-operator/issues/130)) ([03f5a3f](https://github.com/hashi-at-home/nomad-step-up-operator/commit/03f5a3f6cbe2c8b0433719656f5488463a0cc1ee))
+
+## [1.4.51](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.50...v1.4.51) (2026-02-02)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to e9bf8d8 ([#129](https://github.com/hashi-at-home/nomad-step-up-operator/issues/129)) ([8309902](https://github.com/hashi-at-home/nomad-step-up-operator/commit/83099021f0820ad75365aad00bfebbc6fdd7d68c))
+
+## [1.4.50](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.49...v1.4.50) (2026-02-02)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to d99775b ([#127](https://github.com/hashi-at-home/nomad-step-up-operator/issues/127)) ([2db6903](https://github.com/hashi-at-home/nomad-step-up-operator/commit/2db69039d606be4fb522e153e87c6152d33005c5))
+
+## [1.4.49](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.48...v1.4.49) (2026-01-30)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to 2adf966 ([#126](https://github.com/hashi-at-home/nomad-step-up-operator/issues/126)) ([a54410e](https://github.com/hashi-at-home/nomad-step-up-operator/commit/a54410ef72f459dad84065e0a652833652321674))
+
+## [1.4.48](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.47...v1.4.48) (2026-01-28)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to 5b128fa ([#125](https://github.com/hashi-at-home/nomad-step-up-operator/issues/125)) ([9ef9027](https://github.com/hashi-at-home/nomad-step-up-operator/commit/9ef902789be78e6378528eeac0583f28e995e264))
+
+## [1.4.47](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.46...v1.4.47) (2026-01-27)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to 8ca18db ([#124](https://github.com/hashi-at-home/nomad-step-up-operator/issues/124)) ([375df6d](https://github.com/hashi-at-home/nomad-step-up-operator/commit/375df6deee243409e5d741c087c9534120dde53d))
+
+## [1.4.46](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.45...v1.4.46) (2026-01-25)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to 0f2e7fd ([#123](https://github.com/hashi-at-home/nomad-step-up-operator/issues/123)) ([6efa441](https://github.com/hashi-at-home/nomad-step-up-operator/commit/6efa441f1da484b97e46043111c1df222490fe98))
+
+## [1.4.45](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.44...v1.4.45) (2026-01-23)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to fb618ba ([#122](https://github.com/hashi-at-home/nomad-step-up-operator/issues/122)) ([e5b7021](https://github.com/hashi-at-home/nomad-step-up-operator/commit/e5b70216e3d4e1701bb4bb328afce1a6e405f9a1))
+
+## [1.4.44](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.43...v1.4.44) (2026-01-21)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to 9e92c2a ([#121](https://github.com/hashi-at-home/nomad-step-up-operator/issues/121)) ([d44a329](https://github.com/hashi-at-home/nomad-step-up-operator/commit/d44a3299763b330aebe02dc7c0720ca47a81646f))
+
+## [1.4.43](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.42...v1.4.43) (2026-01-20)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to d0d6640 ([#120](https://github.com/hashi-at-home/nomad-step-up-operator/issues/120)) ([8421a16](https://github.com/hashi-at-home/nomad-step-up-operator/commit/8421a16b34409d520ed914f6d2987501032d77a3))
+
+## [1.4.42](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.41...v1.4.42) (2026-01-17)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to 417dbfe ([#119](https://github.com/hashi-at-home/nomad-step-up-operator/issues/119)) ([cbc531a](https://github.com/hashi-at-home/nomad-step-up-operator/commit/cbc531a7c288dbc496d3b28b8aacfdb3615330ce))
+
+## [1.4.41](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.40...v1.4.41) (2026-01-16)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to c302349 ([#118](https://github.com/hashi-at-home/nomad-step-up-operator/issues/118)) ([ed140b8](https://github.com/hashi-at-home/nomad-step-up-operator/commit/ed140b879218d3c2045e22570c477c929c6361bd))
+
+## [1.4.40](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.39...v1.4.40) (2026-01-15)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to a443448 ([#116](https://github.com/hashi-at-home/nomad-step-up-operator/issues/116)) ([dcb5736](https://github.com/hashi-at-home/nomad-step-up-operator/commit/dcb57362555268d798e0ffb563d7b53d4bd9dff3))
+
+## [1.4.39](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.38...v1.4.39) (2026-01-14)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to 82e57dd ([#115](https://github.com/hashi-at-home/nomad-step-up-operator/issues/115)) ([cc06d95](https://github.com/hashi-at-home/nomad-step-up-operator/commit/cc06d9550edf7a797e91892b9f9cf4084c7bac38))
+
+## [1.4.38](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.37...v1.4.38) (2025-12-22)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to 5beec4b ([#114](https://github.com/hashi-at-home/nomad-step-up-operator/issues/114)) ([99b9454](https://github.com/hashi-at-home/nomad-step-up-operator/commit/99b9454463808092fcdd2f30b39f482a1aebabc0))
+
+## [1.4.37](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.36...v1.4.37) (2025-12-19)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to 840bfc4 ([#113](https://github.com/hashi-at-home/nomad-step-up-operator/issues/113)) ([ad17fb5](https://github.com/hashi-at-home/nomad-step-up-operator/commit/ad17fb5e3f2dfcf27cc75248c882d8f3710ddfc2))
+
+## [1.4.36](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.35...v1.4.36) (2025-12-19)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to 3501ae8 ([#112](https://github.com/hashi-at-home/nomad-step-up-operator/issues/112)) ([4235cdc](https://github.com/hashi-at-home/nomad-step-up-operator/commit/4235cdcac61a58c75ae4cdfe3499cd6c5bca583d))
+
+## [1.4.35](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.34...v1.4.35) (2025-12-17)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to 1dee067 ([#111](https://github.com/hashi-at-home/nomad-step-up-operator/issues/111)) ([7191e4e](https://github.com/hashi-at-home/nomad-step-up-operator/commit/7191e4ee16fc1f13c2545e0c03e5d0dbb780dae9))
+
+## [1.4.34](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.33...v1.4.34) (2025-12-12)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to a7cc56c ([#110](https://github.com/hashi-at-home/nomad-step-up-operator/issues/110)) ([219bc1d](https://github.com/hashi-at-home/nomad-step-up-operator/commit/219bc1dc2d303ac9e968e6891c1484062634d1a3))
+
+## [1.4.33](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.32...v1.4.33) (2025-12-11)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to 24cd142 ([#109](https://github.com/hashi-at-home/nomad-step-up-operator/issues/109)) ([4140caf](https://github.com/hashi-at-home/nomad-step-up-operator/commit/4140caff733c956fac97e9f19ac40f7eb5dd6eb6))
+
+## [1.4.32](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.31...v1.4.32) (2025-12-10)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to 645ca07 ([#108](https://github.com/hashi-at-home/nomad-step-up-operator/issues/108)) ([d49de9e](https://github.com/hashi-at-home/nomad-step-up-operator/commit/d49de9e292f0a03a40dacdb32f3c0798d3f794fd))
+
+## [1.4.31](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.30...v1.4.31) (2025-12-09)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to cfb2bbc ([#107](https://github.com/hashi-at-home/nomad-step-up-operator/issues/107)) ([7bdb580](https://github.com/hashi-at-home/nomad-step-up-operator/commit/7bdb5805e4d9269e23b24aebc59522c91993c9b9))
+
 ## [1.4.30](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.29...v1.4.30) (2025-12-08)
 
 
