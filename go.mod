@@ -5,7 +5,7 @@ go 1.25.8
 require (
 	charm.land/log/v2 v2.0.0
 	github.com/hashicorp/consul/api v1.33.0
-	github.com/hashicorp/nomad/api v0.0.0-20251208081928-d7bdec9e6896
+	github.com/hashicorp/nomad/api v0.0.0-20260312153230-b4cbc3732304
 	github.com/prometheus/client_golang v1.23.2
 )
 
@@ -24,7 +24,7 @@ require (
 	github.com/clipperhouse/uax29/v2 v2.7.0 // indirect
 	github.com/fatih/color v1.16.0 // indirect
 	github.com/go-logfmt/logfmt v0.6.0 // indirect
-	github.com/go-viper/mapstructure/v2 v2.4.0 // indirect
+	github.com/go-viper/mapstructure/v2 v2.5.0 // indirect
 	github.com/gorilla/websocket v1.5.3 // indirect
 	github.com/hashicorp/cronexpr v1.1.3 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
