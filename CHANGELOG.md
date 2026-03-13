@@ -1,3 +1,10 @@
+## [1.4.69](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.68...v1.4.69) (2026-03-13)
+
+
+### Bug Fixes
+
+* change driver to podman ([49bfb8e](https://github.com/hashi-at-home/nomad-step-up-operator/commit/49bfb8e3ce64e986a53d43a793995910eeb1d3e0))
+
 ## [1.4.68](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.4.67...v1.4.68) (2026-03-13)
 
 
