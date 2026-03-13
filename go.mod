@@ -3,7 +3,7 @@ module hashiatho.me/nomad-step-up-operator
 go 1.25.3
 
 require (
-	github.com/charmbracelet/log v0.4.0
+	github.com/charmbracelet/log/v2 v2.0.0
 	github.com/hashicorp/consul/api v1.33.0
 	github.com/hashicorp/nomad/api v0.0.0-20251208081928-d7bdec9e6896
 	github.com/prometheus/client_golang v1.23.2
