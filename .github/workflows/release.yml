@@ -111,11 +111,15 @@ jobs:
         run: |
           LATEST_TAG=$(git describe --tags --abbrev=0)
           echo "Latest tag: $LATEST_TAG"
+          echo "Building for architecture: ${GOARCH}"
           pack build ghcr.io/hashi-at-home/nomad-step-up-operator:$LATEST_TAG \
             --builder heroku/builder:24 \
             --env "BP_IMAGE_LABELS=org.opencontainers.image.source=https://github.com/hashi-at-home/nomad-step-up-operator" \
-            --env "BP_OCI_DESCRIPTION=Step-Up operator for Nomad agents" \
+            --env "BP_OCI_DESCRIPTION=Step-Up operator for Nomad with API and Consul KV locking" \
             --env "BP_INCLUDE_FILES=step-up.hcl" \
+            --env "GOVERSION=go1.25" \
             --env "GOARCH=${GOARCH}" \
+            --env "GOOS=linux" \
+            --env "CGO_ENABLED=0" \
             --platform ${{ matrix.platform }} \
             --publish
