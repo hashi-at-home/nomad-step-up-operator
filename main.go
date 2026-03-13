@@ -13,7 +13,7 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/charmbracelet/log"
+	"charm.land/log/v2"
 	consulapi "github.com/hashicorp/consul/api"
 	nomadapi "github.com/hashicorp/nomad/api"
 	"github.com/prometheus/client_golang/prometheus"
