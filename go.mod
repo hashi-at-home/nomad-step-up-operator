@@ -4,7 +4,7 @@ go 1.25.8
 
 require (
 	charm.land/log/v2 v2.0.0
-	github.com/hashicorp/consul/api v1.33.4
+	github.com/hashicorp/consul/api v1.33.5
 	github.com/hashicorp/nomad/api v0.0.0-20260323174533-f99f185e10bf
 	github.com/prometheus/client_golang v1.23.2
 )
@@ -50,8 +50,8 @@ require (
 	github.com/rogpeppe/go-internal v1.13.1 // indirect
 	github.com/xo/terminfo v0.0.0-20220910002029-abceb7e1c41e // indirect
 	go.yaml.in/yaml/v2 v2.4.2 // indirect
-	golang.org/x/exp v0.0.0-20250808145144-a408d31f581a // indirect
-	golang.org/x/sync v0.18.0 // indirect
+	golang.org/x/exp v0.0.0-20260218203240-3dfff04db8fa // indirect
+	golang.org/x/sync v0.19.0 // indirect
 	golang.org/x/sys v0.42.0 // indirect
 	google.golang.org/protobuf v1.36.8 // indirect
 )
