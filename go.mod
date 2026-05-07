@@ -5,7 +5,7 @@ go 1.26
 require (
 	charm.land/log/v2 v2.0.0
 	github.com/hashicorp/consul/api v1.34.2
-	github.com/hashicorp/nomad/api v0.0.0-20260506070357-a4f577f1652a
+	github.com/hashicorp/nomad/api v0.0.0-20260507202753-70ddec5e0cb4
 	github.com/prometheus/client_golang v1.23.2
 )
 
