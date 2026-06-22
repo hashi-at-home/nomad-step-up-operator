@@ -6,7 +6,7 @@ require (
 	charm.land/log/v2 v2.0.0
 	github.com/hashicorp/consul/api v1.34.3
 	github.com/hashicorp/consul/api/v2 v2.0.0
-	github.com/hashicorp/nomad/api v0.0.0-20260618150418-b2bf011008ef
+	github.com/hashicorp/nomad/api v0.0.0-20260622150140-ec332d2cba1c
 	github.com/prometheus/client_golang v1.23.2
 )
 
