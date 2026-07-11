@@ -228,6 +228,8 @@ github.com/hashicorp/nomad/api v0.0.0-20260707141449-247bf86dd082 h1:F5gdfeZ/t2Z
 github.com/hashicorp/nomad/api v0.0.0-20260707141449-247bf86dd082/go.mod h1:Gnzrrc6H3OackqTmXNoGN30v347WpaX6oPZDJRSwX8A=
 github.com/hashicorp/nomad/api v0.0.0-20260708231005-bd6d1b908158 h1:rtYnheAXpuzNlFdQmvXo8xePJOX6Zfyktcjw8mdImbQ=
 github.com/hashicorp/nomad/api v0.0.0-20260708231005-bd6d1b908158/go.mod h1:Gnzrrc6H3OackqTmXNoGN30v347WpaX6oPZDJRSwX8A=
+github.com/hashicorp/nomad/api v0.0.0-20260710225221-a76ff571b41f h1:l3Va9DvtAWDa4zdmiDYPXmNgR9jDgBRA8+u2SArX8jY=
+github.com/hashicorp/nomad/api v0.0.0-20260710225221-a76ff571b41f/go.mod h1:Gnzrrc6H3OackqTmXNoGN30v347WpaX6oPZDJRSwX8A=
 github.com/hashicorp/serf v0.10.1 h1:Z1H2J60yRKvfDYAOZLd2MU0ND4AH/WDz7xYHDWQsIPY=
 github.com/hashicorp/serf v0.10.1/go.mod h1:yL2t6BqATOLGc5HF7qbFkTfXoPIY0WZdWHfEvMqbG+4=
 github.com/hashicorp/serf v0.10.4 h1:TCQOrJXHZ1Xf80c4WBhMM9OwUFgDaIP0R+YvoQUKadI=
