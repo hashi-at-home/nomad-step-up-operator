@@ -1,3 +1,11 @@
+## [1.5.52](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.5.51...v1.5.52) (2026-07-21)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to cbb8a76 ([#223](https://github.com/hashi-at-home/nomad-step-up-operator/issues/223)) ([687bbbd](https://github.com/hashi-at-home/nomad-step-up-operator/commit/687bbbd532d7e7ae1c29bf3a9a5f60d75c14052b))
+* **deps:** update semantic-release monorepo (major) ([#224](https://github.com/hashi-at-home/nomad-step-up-operator/issues/224)) ([1890897](https://github.com/hashi-at-home/nomad-step-up-operator/commit/18908975fea2ead7cb2c0a7f1e5c70d44939c4f2))
+
 ## [1.5.51](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.5.50...v1.5.51) (2026-07-21)
 
 
