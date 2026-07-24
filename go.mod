@@ -7,7 +7,7 @@ require (
 	github.com/hashicorp/consul/api v1.34.4
 	github.com/hashicorp/consul/api/v2 v2.0.0
 	github.com/hashicorp/nomad/api v0.0.0-20260721120044-d7abd0727302
-	github.com/prometheus/client_golang v1.24.0
+	github.com/prometheus/client_golang v1.24.1
 )
 
 require (
@@ -46,7 +46,7 @@ require (
 	github.com/muesli/cancelreader v0.2.2 // indirect
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
 	github.com/prometheus/client_model v0.6.2 // indirect
-	github.com/prometheus/common v0.70.0 // indirect
+	github.com/prometheus/common v0.70.1 // indirect
 	github.com/prometheus/procfs v0.21.1 // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
 	github.com/rogpeppe/go-internal v1.13.1 // indirect
