@@ -1,5 +1,5 @@
 [tools]
-go = "1.26.5"
+go = "1.26.6"
 pack = "0.40.9"
 prek = "latest"
 node = "24"
