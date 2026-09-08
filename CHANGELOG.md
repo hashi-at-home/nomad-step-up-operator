@@ -1,3 +1,10 @@
+## [1.5.70](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.5.69...v1.5.70) (2026-09-08)
+
+
+### Bug Fixes
+
+* **deps:** update module charm.land/log/v2 to v2.0.1 ([#265](https://github.com/hashi-at-home/nomad-step-up-operator/issues/265)) ([e9bfb28](https://github.com/hashi-at-home/nomad-step-up-operator/commit/e9bfb2838701bc63c9063cee8d0e26df1329f667))
+
 ## [1.5.69](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.5.68...v1.5.69) (2026-09-01)
 
 
