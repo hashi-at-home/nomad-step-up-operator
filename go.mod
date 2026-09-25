@@ -1,10 +1,10 @@
 module hashiatho.me/nomad-step-up-operator
 
-go 1.26
+go 1.26.7
 
 require (
 	charm.land/log/v2 v2.0.1
-	github.com/hashicorp/consul/api v1.34.4
+	github.com/hashicorp/consul/api v1.34.5
 	github.com/hashicorp/consul/api/v2 v2.0.0
 	github.com/hashicorp/nomad/api v0.0.0-20260901061605-ea7bc511daa7
 	github.com/prometheus/client_golang v1.24.1
@@ -53,7 +53,7 @@ require (
 	github.com/xo/terminfo v0.0.0-20220910002029-abceb7e1c41e // indirect
 	go.yaml.in/yaml/v2 v2.4.4 // indirect
 	golang.org/x/exp v0.0.0-20260218203240-3dfff04db8fa // indirect
-	golang.org/x/sync v0.21.0 // indirect
-	golang.org/x/sys v0.47.0 // indirect
+	golang.org/x/sync v0.22.0 // indirect
+	golang.org/x/sys v0.48.0 // indirect
 	google.golang.org/protobuf v1.36.11 // indirect
 )
