@@ -92,7 +92,8 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y qemu-efi-aarch64 \
-            qemu-user-static \
+            # qemu-user-static \
+            qemu-user-binfmt \
             binfmt-support \
             qemu-user \
             qemu-system-arm \
