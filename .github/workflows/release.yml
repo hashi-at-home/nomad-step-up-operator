@@ -91,13 +91,15 @@ jobs:
       - name: Install build dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y qemu-efi-aarch64 \
+          sudo apt-get install -y \
+            # qemu-efi-aarch64 \
             # qemu-user-static \
-            qemu-user-binfmt \
-            binfmt-support \
-            qemu-user \
-            qemu-system-arm \
-            qemu-efi-aarch64
+            # qemu-user-binfmt \
+            # qemu-user-binfmt-hwe \
+            # binfmt-support \
+            # qemu-user \
+            qemu-system-arm
+            # qemu-efi-aarch64
       - name: Set up build env
         uses: jdx/mise-action@v4
         with:
