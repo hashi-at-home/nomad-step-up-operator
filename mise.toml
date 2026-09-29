@@ -4,8 +4,8 @@ pack = "0.40.9"
 prek = "0.5.4"
 
 [tasks.test]
-description = "Run a semantic release"
-run = "npx semantic-release"
+description = "Run unit tests"
+run = "go test"
 
 [tasks.pack]
 description = "Build an image and deliver it to the registry with Cloud Native buildpack"
