@@ -5,11 +5,6 @@ job "node-config" {
     value = "linux"
   }
 
-  constraint {
-    attribute = "${attr.unique.hostname}"
-    value = "turing2"
-  }
-
   group "ansible" {
     task "prepare" {
       resources {

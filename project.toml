@@ -1,0 +1,42 @@
+# project.toml - Cloud Native Buildpack configuration for Heroku
+
+[_]
+schema-version = "0.2"
+
+[io.buildpacks]
+builder = "heroku/builder:26"
+
+[[io.buildpacks.build.env]]
+name = "GOVERSION"
+value = "go1.27"
+
+[[io.buildpacks.build.env]]
+name = "CGO_ENABLED"
+value = "1"
+
+[[io.buildpacks.build.env]]
+name = "GOOS"
+value = "linux"
+
+[[io.buildpacks.build.env]]
+name = "BP_IMAGE_LABELS"
+label = "org.opencontainers.image.source=https://github.com/hashi-at-home/nomad-step-up-operator"
+
+[build]
+exclude = [
+  ".git",
+  ".github",
+  ".gitignore",
+  ".pre-commit-config.yaml",
+  ".secrets.baseline",
+  "*.md",
+  "LICENSE",
+  "renovate.json",
+  "commitlint.config.js",
+  "package*.json",
+  ".releaserc",
+  "mise.toml",
+  "bin/",
+  "Makefile",
+  "*_test.go"
+]

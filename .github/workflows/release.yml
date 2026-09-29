@@ -91,14 +91,12 @@ jobs:
       - name: Install build dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y qemu-system-arm
-            # qemu-efi-aarch64 \
+          sudo apt-get install -y qemu-system-arm qemu-efi-aarch64
             # qemu-user-static \
             # qemu-user-binfmt \
             # qemu-user-binfmt-hwe \
             # binfmt-support \
             # qemu-user \
-            # qemu-efi-aarch64
       - name: Set up build env
         uses: jdx/mise-action@v4
         with:
@@ -109,7 +107,8 @@ jobs:
       - name: Build and publish container image
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GOARCH: ${{ matrix.platform == 'linux/arm64' && 'arm64' || 'amd64' }}
+          # GOARCH: ${{ matrix.platform == 'linux/arm64' && 'arm64' || 'amd64' }}
+          GOARCH: ${{ matrix.platform }}
         run: |
           LATEST_TAG=$(git describe --tags --abbrev=0)
           echo "Latest tag: $LATEST_TAG"
@@ -122,6 +121,6 @@ jobs:
             --env "GOVERSION=go1.27" \
             --env "GOARCH=${GOARCH}" \
             --env "GOOS=linux" \
-            --env "CGO_ENABLED=0" \
+            --env "CGO_ENABLED=1" \
             --platform ${{ matrix.platform }} \
             --publish
