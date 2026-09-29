@@ -92,11 +92,6 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y qemu-system-arm qemu-efi-aarch64 binfmt-support
-            # qemu-user-static \
-            # qemu-user-binfmt \
-            # qemu-user-binfmt-hwe \
-             \
-            # qemu-user \
       - name: Set up build env
         uses: jdx/mise-action@v5
         with:
@@ -107,21 +102,7 @@ jobs:
       - name: Build and publish container image
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # Set architecture based on
-          # GOARCH: ${{ matrix.platform == 'linux/arm64' && 'arm64' || 'amd64' }}
         run: |
           LATEST_TAG=$(git describe --tags --abbrev=0)
           echo "Latest tag: $LATEST_TAG"
-          # echo "Building for architecture: ${GOARCH}"
           pack build ghcr.io/hashi-at-home/nomad-step-up-operator:latest --platform ${{ matrix.platform }} -d project.toml --publish
-          # pack build ghcr.io/hashi-at-home/nomad-step-up-operator:$LATEST_TAG \
-          #   --builder heroku/builder:26 \
-          #   --env "BP_IMAGE_LABELS=org.opencontainers.image.source=https://github.com/hashi-at-home/nomad-step-up-operator" \
-          #   --env "BP_OCI_DESCRIPTION=Step-Up operator for Nomad with API and Consul KV locking" \
-          #   --env "BP_INCLUDE_FILES=step-up.hcl" \
-          #   --env "GOVERSION=go1.27" \
-          #   --env "GOARCH=${GOARCH}" \
-          #   --env "GOOS=linux" \
-          #   --env "CGO_ENABLED=1" \
-          #   --platform ${{ matrix.platform }} \
-          #   --publish

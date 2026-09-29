@@ -1,4 +1,4 @@
-# nomad-step-up-operator
+# Nomad StepUp Operator
 
 A Nomad operator to help nodes step up.
 
@@ -62,8 +62,15 @@ Health status is available through the `/metrics` Prometheus metrics endpoint
 
 ## Development
 
+See development environment in [Mise defintinition](mise.toml) and activate:
+
+```shell
+mise install
+eval $(mise activate)
+```
+
 Built with:
-- Go 1.21+
+- Go 1.27
 - Cloud Native Buildpacks
 - GitHub Actions for CI/CD
 
@@ -72,7 +79,3 @@ Build multi-architecture images:
 go mod tidy
 go build ./...
 ```
-
-## License
-
-MIT License - See LICENSE file for details
