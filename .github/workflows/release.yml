@@ -18,9 +18,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v7
       - name: Set up build env
-        uses: jdx/mise-action@v4
+        uses: jdx/mise-action@v5
         with:
-          version: 2026.9.12
+          version: 2026.9.15
           install: true
           cache: true
           experimental: true
@@ -49,9 +49,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v7
       - name: Set up build env
-        uses: jdx/mise-action@v4
+        uses: jdx/mise-action@v5
         with:
-          version: 2026.9.12
+          version: 2026.9.15
           install: true
           cache: true
           experimental: true
@@ -75,7 +75,7 @@ jobs:
     needs:
       - release
     continue-on-error: true
-    runs-on: ubuntu-26.04
+    runs-on: ${{ matrix.platform == 'linux/arm64' && 'ubuntu-26.04-arm' || 'ubuntu-26.04' }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
@@ -91,35 +91,37 @@ jobs:
       - name: Install build dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y qemu-efi-aarch64 \
-            qemu-user-static \
-            binfmt-support \
-            qemu-user \
-            qemu-system-arm \
-            qemu-efi-aarch64
+          sudo apt-get install -y qemu-system-arm qemu-efi-aarch64 binfmt-support
+            # qemu-user-static \
+            # qemu-user-binfmt \
+            # qemu-user-binfmt-hwe \
+             \
+            # qemu-user \
       - name: Set up build env
-        uses: jdx/mise-action@v4
+        uses: jdx/mise-action@v5
         with:
-          version: 2026.9.12
+          version: 2026.9.15
           install: true
           cache: true
           experimental: true
       - name: Build and publish container image
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GOARCH: ${{ matrix.platform == 'linux/arm64' && 'arm64' || 'amd64' }}
+          # Set architecture based on
+          # GOARCH: ${{ matrix.platform == 'linux/arm64' && 'arm64' || 'amd64' }}
         run: |
           LATEST_TAG=$(git describe --tags --abbrev=0)
           echo "Latest tag: $LATEST_TAG"
-          echo "Building for architecture: ${GOARCH}"
-          pack build ghcr.io/hashi-at-home/nomad-step-up-operator:$LATEST_TAG \
-            --builder heroku/builder:24 \
-            --env "BP_IMAGE_LABELS=org.opencontainers.image.source=https://github.com/hashi-at-home/nomad-step-up-operator" \
-            --env "BP_OCI_DESCRIPTION=Step-Up operator for Nomad with API and Consul KV locking" \
-            --env "BP_INCLUDE_FILES=step-up.hcl" \
-            --env "GOVERSION=go1.25" \
-            --env "GOARCH=${GOARCH}" \
-            --env "GOOS=linux" \
-            --env "CGO_ENABLED=0" \
-            --platform ${{ matrix.platform }} \
-            --publish
+          # echo "Building for architecture: ${GOARCH}"
+          pack build ghcr.io/hashi-at-home/nomad-step-up-operator:latest --platform ${{ matrix.platform }} -d project.toml --publish
+          # pack build ghcr.io/hashi-at-home/nomad-step-up-operator:$LATEST_TAG \
+          #   --builder heroku/builder:26 \
+          #   --env "BP_IMAGE_LABELS=org.opencontainers.image.source=https://github.com/hashi-at-home/nomad-step-up-operator" \
+          #   --env "BP_OCI_DESCRIPTION=Step-Up operator for Nomad with API and Consul KV locking" \
+          #   --env "BP_INCLUDE_FILES=step-up.hcl" \
+          #   --env "GOVERSION=go1.27" \
+          #   --env "GOARCH=${GOARCH}" \
+          #   --env "GOOS=linux" \
+          #   --env "CGO_ENABLED=1" \
+          #   --platform ${{ matrix.platform }} \
+          #   --publish

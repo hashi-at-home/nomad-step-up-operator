@@ -1,19 +1,19 @@
 repos:
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.30.0
+    rev: 0.38.2
     hooks:
       - id: check-github-workflows
       - id: check-renovate
   # Detect-secrets to scan for secrets in the codebase
   - repo: https://github.com/Yelp/detect-secrets
-    rev: v1.5.0  # Replace with the latest version
+    rev: v1.5.0 # Replace with the latest version
     hooks:
       - id: detect-secrets
         args: ["--baseline", ".secrets.baseline"]
 
   # Commitlint to enforce conventional commit messages
   - repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
-    rev: v9.20.0  # Replace with the latest version
+    rev: v9.27.0 # Replace with the latest version
     hooks:
       - id: commitlint
         stages: [commit-msg]
@@ -22,7 +22,7 @@ repos:
 
   # Pre-commit Go hooks for linting, building, and testing
   - repo: https://github.com/dnephin/pre-commit-golang
-    rev: v0.5.1  # Replace with the latest version
+    rev: v0.5.1 # Replace with the latest version
     hooks:
       # Run `go fmt` to format code
       - id: go-fmt
@@ -35,3 +35,5 @@ repos:
       - id: go-build
       # Run `go test` to execute tests
       - id: go-unit-tests
+      # Tidy the god modules
+      - id: go-mod-tidy
