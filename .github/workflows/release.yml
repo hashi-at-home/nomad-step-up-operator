@@ -91,11 +91,11 @@ jobs:
       - name: Install build dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y qemu-system-arm qemu-efi-aarch64
+          sudo apt-get install -y qemu-system-arm qemu-efi-aarch64 binfmt-support
             # qemu-user-static \
             # qemu-user-binfmt \
             # qemu-user-binfmt-hwe \
-            # binfmt-support \
+             \
             # qemu-user \
       - name: Set up build env
         uses: jdx/mise-action@v4
@@ -107,6 +107,7 @@ jobs:
       - name: Build and publish container image
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Set architecture based on
           GOARCH: ${{ matrix.platform == 'linux/arm64' && 'arm64' || 'amd64' }}
         run: |
           LATEST_TAG=$(git describe --tags --abbrev=0)

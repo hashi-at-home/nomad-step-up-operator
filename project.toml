@@ -20,7 +20,7 @@ value = "linux"
 
 [[io.buildpacks.build.env]]
 name = "BP_IMAGE_LABELS"
-label = "org.opencontainers.image.source=https://github.com/hashi-at-home/nomad-step-up-operator"
+value = "org.opencontainers.image.source=https://github.com/hashi-at-home/nomad-step-up-operator"
 
 [[io.buildpacks.build.env]]
 name = "BP_INCLUDE_FILES"
