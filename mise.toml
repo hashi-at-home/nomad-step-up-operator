@@ -2,4 +2,7 @@
 go = "1.27.1"
 pack = "0.40.9"
 prek = "0.5.4"
-node = "24"
+
+[tasks.release]
+description = "Run a semantic release"
+run = "npx semantic-release"

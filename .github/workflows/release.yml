@@ -55,15 +55,13 @@ jobs:
           install: true
           cache: true
           experimental: true
-      # Set up Node.js environment (required for semantic-release)
-      - name: Add dependencies
-        run: npm install "@semantic-release/changelog" "@semantic-release/github" "@semantic-release/git"
-
-      # Run semantic-release
+        env:
+          MISE_ENV: release
       - name: Run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release
+          MISE_ENV: release
+        run: mise tasks run release
 
   publish:
     strategy:
