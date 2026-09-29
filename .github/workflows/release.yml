@@ -55,15 +55,13 @@ jobs:
           install: true
           cache: true
           experimental: true
-      # Set up Node.js environment (required for semantic-release)
-      - name: Add dependencies
-        run: npm install "@semantic-release/changelog" "@semantic-release/github" "@semantic-release/git"
-
-      # Run semantic-release
+        env:
+          MISE_ENV: release
       - name: Run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release
+          MISE_ENV: release
+        run: mise tasks run release
 
   publish:
     strategy:
@@ -105,4 +103,5 @@ jobs:
         run: |
           LATEST_TAG=$(git describe --tags --abbrev=0)
           echo "Latest tag: $LATEST_TAG"
-          pack build ghcr.io/hashi-at-home/nomad-step-up-operator:latest --platform ${{ matrix.platform }} -d project.toml --publish
+          # pack build ghcr.io/hashi-at-home/nomad-step-up-operator:latest --platform ${{ matrix.platform }} -d project.toml --publish
+          mise task run pack ${{ matrix.platform }}

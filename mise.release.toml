@@ -1,0 +1,15 @@
+[env]
+_.path = ['{{config_root}}/node_modules/.bin']
+
+
+[tools]
+node = "26"
+
+[tasks.release-deps]
+description = "Install release dependencies"
+run = "npm install @semantic-release/changelog @semantic-release/github @semantic-release/git"
+
+[tasks.release]
+depends = ["release-deps"]
+description = "Run a semantic release"
+run = "npx semantic-release"
