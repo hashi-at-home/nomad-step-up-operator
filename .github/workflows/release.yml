@@ -108,12 +108,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # Set architecture based on
-          GOARCH: ${{ matrix.platform == 'linux/arm64' && 'arm64' || 'amd64' }}
+          # GOARCH: ${{ matrix.platform == 'linux/arm64' && 'arm64' || 'amd64' }}
         run: |
           LATEST_TAG=$(git describe --tags --abbrev=0)
           echo "Latest tag: $LATEST_TAG"
-          echo "Building for architecture: ${GOARCH}"
-          pack build ghcr.io/hashi-at-home/nomad-step-up-operator:latest --platform ${{ matrix.platform }} -d project.toml
+          # echo "Building for architecture: ${GOARCH}"
+          pack build ghcr.io/hashi-at-home/nomad-step-up-operator:latest --platform ${{ matrix.platform }} -d project.toml --publish
           # pack build ghcr.io/hashi-at-home/nomad-step-up-operator:$LATEST_TAG \
           #   --builder heroku/builder:26 \
           #   --env "BP_IMAGE_LABELS=org.opencontainers.image.source=https://github.com/hashi-at-home/nomad-step-up-operator" \
