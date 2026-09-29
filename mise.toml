@@ -3,6 +3,20 @@ go = "1.27.1"
 pack = "0.40.9"
 prek = "0.5.4"
 
-[tasks.release]
+[tasks.test]
 description = "Run a semantic release"
 run = "npx semantic-release"
+
+[tasks.pack]
+description = "Build an image and deliver it to the registry with Cloud Native buildpack"
+usage = '''
+arg "<platform>" help="Target platform" {
+  choices "linux/arm64" "linux/amd64"
+}
+arg "<tag>" help="Image tag" default="latest" env="LATEST_TAG"
+'''
+run = '''
+#!/usr/bin/env bash
+echo ${usage_platform}
+pack build ghcr.io/hashi-at-home/nomad-step-up-operator:${usage_tag} -d project.toml --platform ${usage_platform} --publish
+'''
