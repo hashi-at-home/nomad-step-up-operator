@@ -20,7 +20,7 @@ jobs:
       - name: Set up build env
         uses: jdx/mise-action@v5
         with:
-          version: 2026.9.17
+          version: 2026.9.18
           install: true
           cache: true
           experimental: true
@@ -51,7 +51,7 @@ jobs:
       - name: Set up build env
         uses: jdx/mise-action@v5
         with:
-          version: 2026.9.17
+          version: 2026.9.18
           install: true
           cache: true
           experimental: true
@@ -93,7 +93,7 @@ jobs:
       - name: Set up build env
         uses: jdx/mise-action@v5
         with:
-          version: 2026.9.17
+          version: 2026.9.18
           install: true
           cache: true
           experimental: true
