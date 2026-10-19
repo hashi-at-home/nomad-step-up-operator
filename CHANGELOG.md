@@ -1,3 +1,17 @@
+## [1.5.74](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.5.73...v1.5.74) (2026-10-14)
+
+
+### Bug Fixes
+
+* **deps:** update module github.com/prometheus/client_golang to v1.25.0 ([#286](https://github.com/hashi-at-home/nomad-step-up-operator/issues/286)) ([4692387](https://github.com/hashi-at-home/nomad-step-up-operator/commit/46923875f68783f09ed775f9c2b459114a76ef7d))
+
+## [1.5.73](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.5.72...v1.5.73) (2026-10-14)
+
+
+### Bug Fixes
+
+* **deps:** update github.com/hashicorp/nomad/api digest to bf24b0d ([#278](https://github.com/hashi-at-home/nomad-step-up-operator/issues/278)) ([01f0f2a](https://github.com/hashi-at-home/nomad-step-up-operator/commit/01f0f2ab4494f746732cecff2ae7700d779beec8))
+
 ## [1.5.72](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.5.71...v1.5.72) (2026-09-29)
 
 
