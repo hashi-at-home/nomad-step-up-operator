@@ -1,7 +1,7 @@
 [tools]
-go = "1.27.1"
-pack = "0.40.9"
-prek = "0.5.5"
+go = "1.27.2"
+pack = "0.40.10"
+prek = "0.5.6"
 
 [tasks.test]
 description = "Run unit tests"
