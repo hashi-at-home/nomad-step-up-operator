@@ -117,6 +117,8 @@ github.com/hashicorp/nomad/api v0.0.0-20261015175607-0c8fe412fab2 h1:bcCBxJvkd50
 github.com/hashicorp/nomad/api v0.0.0-20261015175607-0c8fe412fab2/go.mod h1:x/V7eEDwMx7UTOAb/Bc4mMsTfy5GdOP4sQY0a4Mmm1g=
 github.com/hashicorp/nomad/api v0.0.0-20261023132456-89d539f03fc3 h1:Q8q3/5vrViMVCxbBwx1Aj67DEkGwCUq45UG1zeHkVQY=
 github.com/hashicorp/nomad/api v0.0.0-20261023132456-89d539f03fc3/go.mod h1:x/V7eEDwMx7UTOAb/Bc4mMsTfy5GdOP4sQY0a4Mmm1g=
+github.com/hashicorp/nomad/api v0.0.0-20261026180201-b58d9c2cdf38 h1:jc907C90Zb3o8SZe8x7hV3lI0spIXD9KIfJ9UlysyAM=
+github.com/hashicorp/nomad/api v0.0.0-20261026180201-b58d9c2cdf38/go.mod h1:x/V7eEDwMx7UTOAb/Bc4mMsTfy5GdOP4sQY0a4Mmm1g=
 github.com/hashicorp/serf v0.10.4 h1:TCQOrJXHZ1Xf80c4WBhMM9OwUFgDaIP0R+YvoQUKadI=
 github.com/hashicorp/serf v0.10.4/go.mod h1:l+s5Q1OSPWU6b9l9m7ODJzTp7mLevSaVzAI03Nka2F0=
 github.com/json-iterator/go v1.1.6/go.mod h1:+SdeFBvtyEkXs7REEP0seUULqWtbJapLOCVDaaPEHmU=
