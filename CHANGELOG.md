@@ -1,3 +1,10 @@
+## [1.5.80](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.5.79...v1.5.80) (2026-11-27)
+
+
+### Bug Fixes
+
+* **deps:** update module github.com/hashicorp/consul/api to v1.35.1 ([#321](https://github.com/hashi-at-home/nomad-step-up-operator/issues/321)) ([1a771f1](https://github.com/hashi-at-home/nomad-step-up-operator/commit/1a771f1e6b5e89071f61e79f83dc8b68fa081729))
+
 ## [1.5.79](https://github.com/hashi-at-home/nomad-step-up-operator/compare/v1.5.78...v1.5.79) (2026-11-08)
 
 
